@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gittacle — web GitHub client (MVP)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Gittacle</h1>
+      <div class="controls">
+        <button id="btn-setup">Setup</button>
+        <button id="btn-pull">Pull</button>
+        <button id="btn-download">Download ZIP</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <div class="repo-info" id="repo-info">No repo configured</div>
+        <div class="file-actions">
+          <button id="btn-new-file">New File</button>
+          <button id="btn-upload">Upload</button>
+          <button id="btn-unzip">Unzip</button>
+          <button id="btn-multi-delete">Delete Selected</button>
+        </div>
+
+        <div id="file-explorer" class="explorer">
+          <!-- file tree rendered here -->
+        </div>
+      </aside>
+
+      <section class="editor-area">
+        <div class="tabs" id="tabs"></div>
+        <div class="editor" id="editor-area">
+          <!-- editors appended here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- setup modal -->
+    <div id="modal-setup" class="modal hidden">
+      <div class="modal-inner">
+        <h2>Setup GitHub</h2>
+        <label>GitHub username:<input id="input-username" /></label>
+        <label>Repo (owner/repo):<input id="input-repo" placeholder="owner/repo" /></label>
+        <label>Branch:<input id="input-branch" placeholder="main" /></label>
+        <label>Repository URL (optional):<input id="input-repourl" placeholder="https://github.com/owner/repo" /></label>
+        <label>Personal Access Token (PAT):<input id="input-pat" type="password" /></label>
+        <label><input id="input-global" type="checkbox" /> Save token as Global</label>
+        <div class="modal-actions">
+          <button id="btn-save-setup">Save</button>
+          <button id="btn-cancel-setup">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- hidden file uploader -->
+    <input id="file-upload" type="file" multiple class="hidden" />
+
+    <footer class="footer">
+      <small>Mobile-first MVP — Gittacle</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
